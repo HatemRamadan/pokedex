@@ -10,16 +10,18 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <Router>
-        <div className="row">
-        
-          <div className="col-lg-8 col-sm-8">
-            <PokemonList></PokemonList>
-          </div>
-          
-            <div className="col-lg-4 col-sm-4">
-              <Route path="/:number" render={(number) => <PokemonDetails number={number}/>} />
+          <div className="row">
+            <div className="col-lg-8 col-sm-8">
+              <PokemonList></PokemonList>
             </div>
-        </div>
+
+            <div className="col-lg-4 col-sm-4">
+              <Route
+                path="/:number"
+                render={number => <PokemonDetails number={number} />}
+              />
+            </div>
+          </div>
         </Router>
       </div>
     );
