@@ -9,7 +9,7 @@ export default class PokemonList extends Component {
   componentWillMount() {
     this.getPokemons();
   }
-  getPokemons(){
+  getPokemons() {
     PokemonService.getPokemons(this.state.currentPage, 20)
       .then(data => {
         this.setState({ pokemons: data, totalNumber: data.pop().count });
@@ -51,8 +51,8 @@ export default class PokemonList extends Component {
             ></PokemonItem>
           );
         })}
-        <button onClick={this.handlePreviousPage}>Previous</button>
-        <button onClick={this.handleNextPage}>Next</button>
+        <button className="btn btn-secondary mr-2" onClick={this.handlePreviousPage}>Previous</button>
+        <button className="btn btn-secondary" onClick={this.handleNextPage}>Next</button>
       </div>
     );
   }
