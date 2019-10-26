@@ -7,6 +7,9 @@ export default class PokemonList extends Component {
   state = { pokemons: [], currentPage: 1, totalNumber: 0 };
 
   componentWillMount() {
+    this.getPokemons();
+  }
+  getPokemons(){
     PokemonService.getPokemons(this.state.currentPage, 20)
       .then(data => {
         this.setState({ pokemons: data, totalNumber: data.pop().count });
@@ -20,7 +23,7 @@ export default class PokemonList extends Component {
       this.setState(
         currentState => ({ currentPage: currentState.currentPage - 1 }),
         () => {
-          this.componentWillMount();
+          this.getPokemons();
         }
       );
     }
@@ -31,7 +34,7 @@ export default class PokemonList extends Component {
       this.setState(
         currentState => ({ currentPage: currentState.currentPage + 1 }),
         () => {
-          this.componentWillMount();
+          this.getPokemons();
         }
       );
     }
