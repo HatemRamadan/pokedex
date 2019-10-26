@@ -9,10 +9,10 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-8 col-sm-8">
             <PokemonList></PokemonList>
           </div>
-          <div className="col-lg-4">
+          <div className="col-lg-4 col-sm-4">
             <PokemonDetails></PokemonDetails>
           </div>
         </div>

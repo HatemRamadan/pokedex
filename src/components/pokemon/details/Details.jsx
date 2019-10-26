@@ -4,6 +4,6 @@ export default class PokemonDetails extends Component {
   state = {};
 
   render() {
-    return <h1>PokemonDetails</h1>;
+    return <h2>PokemonDetails</h2>;
   }
 }
