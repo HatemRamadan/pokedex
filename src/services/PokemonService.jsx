@@ -41,7 +41,7 @@ const PokemonService = {
       if (cashed !== null) {
         resolve(cashed);
       } else {
-        console.log("API call de");
+        console.log("API call details");
         axios
           .get("https://pokeapi.co/api/v2/pokemon/" + number)
           .then(res => {
@@ -54,6 +54,9 @@ const PokemonService = {
             res.data.stats.forEach(stat => {
               stats.push({ value: stat.base_stat, name: stat.stat.name });
             });
+            const name = res.data.forms[0].name;
+            details["name"] =
+              name.substring(0, 1).toUpperCase() + name.substring(1);
             details["image"] = res.data.sprites.front_default;
             details["types"] = types;
             details["stats"] = stats;

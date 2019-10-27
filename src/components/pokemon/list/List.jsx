@@ -42,17 +42,32 @@ export default class PokemonList extends Component {
   render() {
     return (
       <div>
-        {this.state.pokemons.map(pokemon => {
-          return (
-            <PokemonItem
-              key={pokemon.number}
-              name={pokemon.name}
-              number={pokemon.number}
-            ></PokemonItem>
-          );
-        })}
-        <button className="btn btn-secondary mr-2" onClick={this.handlePreviousPage}>Previous</button>
-        <button className="btn btn-secondary" onClick={this.handleNextPage}>Next</button>
+        <h3 className="text-center">Pokemons</h3>
+        <div className="container">
+          <div className="row">
+            {this.state.pokemons.map(pokemon => {
+              return (
+                <div key={pokemon.number} className="col-md-3 mt-4">
+                  <PokemonItem
+                    name={pokemon.name}
+                    number={pokemon.number}
+                  ></PokemonItem>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-secondary mr-2"
+            onClick={this.handlePreviousPage}
+          >
+            Previous
+          </button>
+          <button className="btn btn-secondary" onClick={this.handleNextPage}>
+            Next
+          </button>
+        </div>
       </div>
     );
   }
