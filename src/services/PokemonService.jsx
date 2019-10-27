@@ -41,7 +41,7 @@ const PokemonService = {
       if (cashed !== null) {
         resolve(cashed);
       } else {
-        console.log("API call de");
+        console.log("API call details");
         axios
           .get("https://pokeapi.co/api/v2/pokemon/" + number)
           .then(res => {
