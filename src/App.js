@@ -16,16 +16,21 @@ class App extends Component {
     return (
       <div className="App container-fluid">
         <Router>
-          <div className="row">
+          <div className="row ml-2">
+            <div className="col-md-12">
+              <h1 className="text-center title">Pokédex</h1>
+            </div>
+          </div>
+          <div className="row ml-2">
             <div
-              className="col-lg-8 col-sm-8"
-              style={{ borderRight: "2px dashed #333" }}
+              className="col-lg-8 col-sm-8 card mt-3 mb-2"
+               style={{ backgroundColor:"#ccdbe8"}}
               onKeyPress={this.clearLocalStorage}
             >
               <PokemonList></PokemonList>
             </div>
 
-            <div className="col-lg-4 col-sm-4">
+            <div className="col-lg-4 col-sm-4 mt-3">
               <Route
                 path="/:number"
                 render={number => <PokemonDetails number={number} />}
