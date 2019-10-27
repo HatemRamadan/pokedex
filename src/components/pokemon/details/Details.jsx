@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import PokemonService from "../../../services/PokemonService";
+import "./Details.css";
 
 export default class PokemonDetails extends Component {
   constructor(props) {
@@ -56,9 +57,8 @@ export default class PokemonDetails extends Component {
   render() {
     return (
       <div>
-        <h4>Pokemon Details</h4>
 
-        <img
+        {/* <img
           width="150"
           height="150"
           src={this.state.image}
@@ -79,11 +79,47 @@ export default class PokemonDetails extends Component {
         {this.state.stats.map(stat => {
           return (
             <p key={stat.name}>
-              <span className="text-warning">{stat.name + ": "}</span>
+              <span className="text-warning">
+                {stat.name.substring(0, 1).toUpperCase() +
+                  stat.name.substring(1) +
+                  ": "}
+              </span>
               <span>{stat.value}</span>
             </p>
           );
-        })}
+        })} */}
+        <div className="card" style={{ width: "22rem", backgroundColor:"#ccdbe8" }}>
+          <img
+            src={this.state.image}
+            className="card-img-top"
+            onLoad={this.handleLoaded}
+            hidden={!this.state.loaded}
+          ></img>
+          {!this.state.loaded && (
+          <img src="/loading_pokemon.png" className="card-img-top"></img>
+        )}
+          <div className="card-body">
+            <h4 className="card-title text-primary text-center">
+              {this.state.name}
+            </h4>
+            <h6 className="card-text">
+              <div className="row no-gutters">
+                {this.state.stats.map(stat => {
+                  return (
+                    <div className="col-sm-6 text-left" key={stat.name}>
+                      <span className="text-danger">
+                        {stat.name.substring(0, 1).toUpperCase() +
+                          stat.name.substring(1) +
+                          ": "}
+                      </span>
+                      <span className="text-muted">{stat.value}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </h6>
+          </div>
+        </div>
       </div>
     );
   }

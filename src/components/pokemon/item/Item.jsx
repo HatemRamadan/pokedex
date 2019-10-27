@@ -15,8 +15,8 @@ export default class PokemonItem extends Component {
   render() {
     return (
       <div onMouseEnter={this.handleOnHover}>
-        <Link to={"/" + this.props.number}>
-          <h5>{this.props.number + "  " + this.props.name.substring(0,1).toUpperCase()+this.props.name.substring(1)}</h5>
+        <Link className="text-center" to={"/" + this.props.number}>
+          <h4>{this.props.number}</h4> <h5 className="mt-0">{this.props.name.substring(0,1).toUpperCase()+this.props.name.substring(1)}</h5>
         </Link>
       </div>
     );
