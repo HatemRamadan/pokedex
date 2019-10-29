@@ -4,6 +4,9 @@ import { Component } from "react";
 import PokemonList from "./components/pokemon/list/List";
 import PokemonDetails from "./components/pokemon/details/Details";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+const cardStyle = { width: "22rem", backgroundColor: "#ccdbe8" };
+
 class App extends Component {
   state = {};
 
@@ -23,8 +26,8 @@ class App extends Component {
           </div>
           <div className="row ml-2">
             <div
-              className="col-lg-8 col-sm-8 card mt-3 mb-2"
-               style={{ backgroundColor:"#ccdbe8"}}
+              className="col-lg-8 col-sm-8 card mt-3"
+              style={cardStyle}
               onKeyPress={this.clearLocalStorage}
             >
               <PokemonList></PokemonList>
