@@ -99,12 +99,12 @@ export default class PokemonDetails extends Component {
           {!this.state.loaded && (
             <img src="/loading_pokemon.png" className="card-img-top"></img>
           )}
-          <div className="card-body">
+          <div className="card-body" hidden={!this.state.loaded}>
             <h4 className="card-title text-primary text-center">
               {this.state.name}
             </h4>
             <h6 className="card-text">
-              <div className="row no-gutters">
+              <div className="row no-gutters" >
                 {this.state.stats.map(stat => {
                   return (
                     <div className="col-sm-6 text-left" key={stat.name}>
