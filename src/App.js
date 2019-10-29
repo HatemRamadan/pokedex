@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <div className="row ml-2">
             <div className="col-md-12">
-              <h1 className="text-center title">Pokédex</h1>
+              <h1 className="text-center title slide-fwd-center">Pokédex</h1>
             </div>
           </div>
           <div className="row ml-2">
