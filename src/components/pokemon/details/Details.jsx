@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import PokemonService from "../../../services/PokemonService";
 import "./Details.css";
+import Popup from "../image-popUp/PopUp";
 
 const cardStyle = { width: "22rem", backgroundColor: "#ccdbe8" };
 export default class PokemonDetails extends Component {
@@ -14,7 +15,8 @@ export default class PokemonDetails extends Component {
     image: "",
     loaded: false,
     types: [],
-    stats: []
+    stats: [],
+    showPopup: false
   };
   componentDidMount() {
     this.setState(
@@ -56,6 +58,11 @@ export default class PokemonDetails extends Component {
   handleLoaded = () => {
     this.setState({ loaded: true });
   };
+  togglePopup =() =>{
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
   render() {
     return (
       <div>
@@ -95,6 +102,7 @@ export default class PokemonDetails extends Component {
             className="card-img-top"
             onLoad={this.handleLoaded}
             hidden={!this.state.loaded}
+            onClick={this.togglePopup}
           ></img>
           {!this.state.loaded && (
             <img src="/loading_pokemon.png" className="card-img-top"></img>
@@ -104,7 +112,7 @@ export default class PokemonDetails extends Component {
               {this.state.name}
             </h4>
             <h6 className="card-text">
-              <div className="row no-gutters" >
+              <div className="row no-gutters">
                 {this.state.stats.map(stat => {
                   return (
                     <div className="col-sm-6 text-left" key={stat.name}>
@@ -121,6 +129,12 @@ export default class PokemonDetails extends Component {
             </h6>
           </div>
         </div>
+        {this.state.showPopup ? (
+          <Popup
+            closePopup={this.togglePopup.bind(this)}
+            image={this.state.image}
+          />
+        ) : null}
       </div>
     );
   }
