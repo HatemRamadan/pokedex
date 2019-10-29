@@ -3,6 +3,7 @@ import { Component } from "react";
 import PokemonService from "../../../services/PokemonService";
 import "./Details.css";
 
+const cardStyle = { width: "22rem", backgroundColor: "#ccdbe8" };
 export default class PokemonDetails extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,8 @@ export default class PokemonDetails extends Component {
     if (this.props.number.match.url !== prevProps.number.match.url) {
       this.setState(
         currentState => ({
-          number: this.props.number.match.url.replace("/", "")
+          number: this.props.number.match.url.replace("/", ""),
+          loaded: false
         }),
         () => {
           this.getPokemonDetails();
@@ -57,7 +59,6 @@ export default class PokemonDetails extends Component {
   render() {
     return (
       <div>
-
         {/* <img
           width="150"
           height="150"
@@ -88,7 +89,7 @@ export default class PokemonDetails extends Component {
             </p>
           );
         })} */}
-        <div className="card" style={{ width: "22rem", backgroundColor:"#ccdbe8" }}>
+        <div className="card" style={cardStyle}>
           <img
             src={this.state.image}
             className="card-img-top"
@@ -96,8 +97,8 @@ export default class PokemonDetails extends Component {
             hidden={!this.state.loaded}
           ></img>
           {!this.state.loaded && (
-          <img src="/loading_pokemon.png" className="card-img-top"></img>
-        )}
+            <img src="/loading_pokemon.png" className="card-img-top"></img>
+          )}
           <div className="card-body">
             <h4 className="card-title text-primary text-center">
               {this.state.name}
