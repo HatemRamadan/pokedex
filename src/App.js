@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./App.css";
 import { Component } from "react";
 import PokemonList from "./components/pokemon/list/List";
@@ -11,24 +12,23 @@ class App extends Component {
   state = {};
 
   clearLocalStorage = event => {
-    if (event.key === "c") {
-      localStorage.clear();
-    }
+    localStorage.clear();
   };
   render() {
     return (
       <div className="App container-fluid">
         <Router>
           <div className="row ml-2">
-            <div className="col-md-12">
+            <div className="col-md-12" onDoubleClick={this.clearLocalStorage}>
               <h1 className="text-center title slide-fwd-center">Pokédex</h1>
             </div>
           </div>
           <div className="row ml-2">
             <div
+              id="focusable"
+              ref="focusable"
               className="col-lg-8 col-sm-8 card mt-3"
               style={cardStyle}
-              onKeyPress={this.clearLocalStorage}
             >
               <PokemonList></PokemonList>
             </div>
