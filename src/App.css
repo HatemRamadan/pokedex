@@ -16,8 +16,8 @@
   font-family: "Pokemon";
   font-weight: lighter;
   color: rgb(167, 11, 11);
-  font-size: 100px;
-  margin-top: 15px;
+  font-size: 80px;
+  margin-top: 2%;
   text-shadow: 5px 10px lightblue;
 }
 .App {
@@ -26,4 +26,31 @@
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
+  -webkit-perspective: 1000;
+}
+.slide-fwd-center {
+  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-70px);
+    transform: translateZ(-70px);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+  }
+}
+@keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(-70px);
+    transform: translateZ(-70px);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+  }
 }
