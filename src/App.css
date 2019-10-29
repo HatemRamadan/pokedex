@@ -15,17 +15,16 @@
 .title {
   font-family: "Pokemon";
   font-weight: lighter;
-  color: rgb(167, 11, 11);
+  color: #ffde29;
   font-size: 80px;
   margin-top: 2%;
-  text-shadow: 5px 10px lightblue;
+  text-shadow: 5px 10px #005aff;
 }
 .App {
-  /* background-color: #282c32; */
-  background-color: rgb(52, 60, 68);
+  background-color: #cd3939;
+  /* background-color: rgb(52, 60, 68); */
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
   -webkit-perspective: 1000;
 }
 .slide-fwd-center {

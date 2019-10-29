@@ -4,7 +4,7 @@ import PokemonService from "../../../services/PokemonService";
 import "./Details.css";
 import Popup from "../image-popUp/PopUp";
 
-const cardStyle = { width: "22rem", backgroundColor: "#ccdbe8" };
+const cardStyle = { width: "22rem", backgroundColor: "#e6cdac" };
 export default class PokemonDetails extends Component {
   constructor(props) {
     super(props);
@@ -108,7 +108,7 @@ export default class PokemonDetails extends Component {
             <img src="/loading_pokemon.png" className="card-img-top"></img>
           )}
           <div className="card-body" hidden={!this.state.loaded}>
-            <h4 className="card-title text-primary text-center">
+            <h4 className="card-title text-center" style={{color:"#005aff"}}>
               {this.state.name}
             </h4>
             <h6 className="card-text">
@@ -116,9 +116,9 @@ export default class PokemonDetails extends Component {
                 {this.state.stats.map(stat => {
                   return (
                     <div className="col-sm-6 text-left" key={stat.name}>
-                      <span className="text-danger">
+                      <span style={{color:"#cd3939"}}>
                         {stat.name.substring(0, 1).toUpperCase() +
-                          stat.name.substring(1) +
+                          stat.name.substring(1).replace("-"," ") +
                           ": "}
                       </span>
                       <span className="text-muted">{stat.value}</span>
