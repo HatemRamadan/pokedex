@@ -6,7 +6,7 @@ import "./List.css";
 export default class PokemonList extends Component {
   state = { pokemons: [], loaded: false, currentPage: 1, totalNumber: 0 };
 
-  componentWillMount() {
+  componentDidMount() {
     this.getPokemons();
   }
   getPokemons() {
