@@ -35,7 +35,7 @@ class App extends Component {
 
             <div className="col-lg-4 col-sm-6 col-md-6 mt-3">
               <Route
-                path="/:number"
+                path="/pokedex/:number"
                 render={number => <PokemonDetails number={number} />}
               />
             </div>

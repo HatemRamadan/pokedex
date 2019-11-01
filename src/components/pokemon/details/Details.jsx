@@ -21,7 +21,7 @@ export default class PokemonDetails extends Component {
   componentDidMount() {
     this.setState(
       currentState => ({
-        number: this.props.number.match.url.replace("/", "")
+        number: this.props.number.match.url.replace("/pokedex/", "")
       }),
       () => {
         this.getPokemonDetails();
@@ -32,7 +32,7 @@ export default class PokemonDetails extends Component {
     if (this.props.number.match.url !== prevProps.number.match.url) {
       this.setState(
         currentState => ({
-          number: this.props.number.match.url.replace("/", ""),
+          number: this.props.number.match.url.replace("/pokedex/", ""),
           loaded: false
         }),
         () => {
@@ -95,10 +95,10 @@ export default class PokemonDetails extends Component {
             </p>
           );
         })} */
-        <div className="my-card" >
+        <div className="my-card text-center" >
           <img
             src={this.state.image}
-            className="card-img-top text-center bg-dark"
+            className="card-img-top text-center"
             onLoad={this.handleLoaded}
             hidden={!this.state.loaded}
             onClick={this.togglePopup}
@@ -131,7 +131,7 @@ export default class PokemonDetails extends Component {
           <Popup
             closePopup={this.togglePopup.bind(this)}
             image={this.state.image}
-          />
+          ></Popup>
         ) : null}
         </div>
     );
