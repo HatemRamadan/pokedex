@@ -6,7 +6,7 @@ import PokemonList from "./components/pokemon/list/List";
 import PokemonDetails from "./components/pokemon/details/Details";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const cardStyle = { width: "22rem", backgroundColor: "#e6cdac" };
+const cardStyle = { width: "21rem", backgroundColor: "#e6cdac" };
 
 class App extends Component {
   state = {};
@@ -27,13 +27,13 @@ class App extends Component {
             <div
               id="focusable"
               ref="focusable"
-              className="col-lg-8 col-sm-8 card mt-3"
+              className="col-lg-8 col-sm-6 col-md-6 card mt-3"
               style={cardStyle}
             >
               <PokemonList></PokemonList>
             </div>
 
-            <div className="col-lg-4 col-sm-4 mt-3">
+            <div className="col-lg-4 col-sm-6 col-md-6 mt-3">
               <Route
                 path="/:number"
                 render={number => <PokemonDetails number={number} />}

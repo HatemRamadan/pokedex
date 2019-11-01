@@ -1,0 +1,15 @@
+.pokemon-item {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .pokemon-item{
+    font-size: 0.8em;
+  margin-bottom: 0.3em;
+  }
+}
