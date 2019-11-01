@@ -4,8 +4,29 @@
   object-fit: contain;
   cursor: pointer;
 }
-.card {
-  width: 22rem;
-  background-color: black;
-  color: black;
+.my-card {
+  width: 20rem;
+  background-color:  #e6cdac;
+   height:55vh;
+   border-radius: 4px;
+}
+
+@media only screen and (max-width: 1150px) {
+  .my-card{
+    width: 19rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card-img-top{
+    width: 10%;
+    height: 30vw;
+    object-fit: fill;
+  }
+  .my-card{
+    height: 40vh;
+    width: 22rem;
+    position: absolute;
+    left: 0;
+  }
 }
