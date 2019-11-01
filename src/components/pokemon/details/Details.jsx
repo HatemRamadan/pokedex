@@ -98,7 +98,7 @@ export default class PokemonDetails extends Component {
         <div className="my-card" >
           <img
             src={this.state.image}
-            className="card-img-top"
+            className="card-img-top text-center bg-dark"
             onLoad={this.handleLoaded}
             hidden={!this.state.loaded}
             onClick={this.togglePopup}
