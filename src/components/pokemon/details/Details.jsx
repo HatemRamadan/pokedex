@@ -104,7 +104,7 @@ export default class PokemonDetails extends Component {
             onClick={this.togglePopup}
           ></img>
           {!this.state.loaded && (
-            <img src="/loading_pokemon.png" className="card-img-top"></img>
+            <img src="/pokedex/loading_pokemon.png" className="card-img-top"></img>
           )}
           <div className="card-body" hidden={!this.state.loaded}>
             <h4 className="card-title text-center" style={{ color: "#005aff" }}>
