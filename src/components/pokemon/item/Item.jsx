@@ -16,7 +16,7 @@ export default class PokemonItem extends Component {
   render() {
     return (
       <div onMouseEnter={this.handleOnHover}>
-        <Link style={{color:"#005aff"}}to={"/" + this.props.number}>
+        <Link style={{color:"#005aff"}}to={"/pokedex/" + this.props.number}>
           <div className="pokemon-item">
             {this.props.number +
               ". " +
