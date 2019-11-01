@@ -6,7 +6,7 @@ import PokemonList from "./components/pokemon/list/List";
 import PokemonDetails from "./components/pokemon/details/Details";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const cardStyle = { width: "22rem", backgroundColor: "#e6cdac" };
+const cardStyle = { width: "21rem", backgroundColor: "#e6cdac" };
 
 class App extends Component {
   state = {};

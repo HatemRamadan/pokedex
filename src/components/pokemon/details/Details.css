@@ -20,12 +20,12 @@
 @media only screen and (max-width: 600px) {
   .card-img-top{
     width: 10%;
-    height: 30vw;
+    height: 25vw;
     object-fit: fill;
   }
   .my-card{
     height: 40vh;
-    width: 22rem;
+    width: 21rem;
     position: absolute;
     left: 0;
   }
