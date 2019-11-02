@@ -12,7 +12,11 @@ class Popup extends React.Component {
             width="40%"
             height="40%"
           ></img>
-          <h1>{this.props.text}</h1>
+          <p>
+          <span className="text-warning">Types: </span>
+          {this.props.types.map(type => {
+            return <span key={type}>{type + " "}</span>;
+          })}</p>
           <button className="btn btn-secondary" onClick={this.props.closePopup}>
             Close
           </button>

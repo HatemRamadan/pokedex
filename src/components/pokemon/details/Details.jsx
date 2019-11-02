@@ -70,36 +70,6 @@ export default class PokemonDetails extends Component {
 
   render() {
     return (
-      /* <img
-          width="150"
-          height="150"
-          src={this.state.image}
-          onLoad={this.handleLoaded}
-          hidden={!this.state.loaded}
-          placeholder="Pokemon front image"
-        ></img>
-        {!this.state.loaded && (
-          <img src="/loading_pokemon.png" width="150" height="150"></img>
-        )}
-        <h4 className="ml-4">{this.state.name}</h4>
-        <p>
-          <span className="text-warning">Types: </span>
-          {this.state.types.map(type => {
-            return <span key={type}>{type + " "}</span>;
-          })}
-        </p>
-        {this.state.stats.map(stat => {
-          return (
-            <p key={stat.name}>
-              <span className="text-warning">
-                {stat.name.substring(0, 1).toUpperCase() +
-                  stat.name.substring(1) +
-                  ": "}
-              </span>
-              <span>{stat.value}</span>
-            </p>
-          );
-        })} */
       <div className="my-card text-center">
         <img
           src={this.state.image}
@@ -145,6 +115,7 @@ export default class PokemonDetails extends Component {
           <Popup
             closePopup={this.togglePopup.bind(this)}
             image={this.state.image}
+            types={this.state.types}
           ></Popup>
         ) : null}
       </div>
