@@ -11,11 +11,10 @@ const resp = {
   data: {
     types: [{ type: { name: "type" } }],
     stats: [{ base_stat: 100, stat: { name: "stat name" } }],
-    forms:[{name:"name"}],
-    sprites:{front_default:"/pokedex/loading_pokemon.png"}
+    forms: [{ name: "name" }],
+    sprites: { front_default: "/pokedex/loading_pokemon.png" }
   }
 };
-
 
 it("Details renders without errors and have correct state", async () => {
   axios.get.mockResolvedValue(resp);
@@ -31,15 +30,14 @@ it("Details renders without errors and have correct state", async () => {
     .at(0)
     .simulate("click");
   expect(togglePopup).toHaveBeenCalled(); //testing if the pop up is going to be shown
-  expect(axios.get).toHaveBeenCalled();  
+  expect(axios.get).toHaveBeenCalled();
   expect(axios.get).toHaveBeenCalledWith("https://pokeapi.co/api/v2/pokemon/1");
   expect(instance.state.showPopup).toBe(true); //since the image was clicked, the pop up should be show
-  
+
   //testing if component state values are assigned correctly
-  expect(instance.state.number).toBe("1"); 
+  expect(instance.state.number).toBe("1");
   expect(instance.state.name).toBe("Name");
   expect(instance.state.types).toHaveLength(1);
   expect(instance.state.stats).toHaveLength(1);
   expect(instance.state.image).toBe("/pokedex/loading_pokemon.png");
-
 });
