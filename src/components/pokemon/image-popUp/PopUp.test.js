@@ -17,6 +17,6 @@ it("image Pop up renders without errors and have correct state", async () => {
     .find("div")
     .at(0)
     .simulate("click");
-  //testing if the pop up was closed as expected  
+  //testing if the pop up was closed as expected
   expect(Details.closePopup).toHaveBeenCalled();
 });

@@ -31,7 +31,7 @@ it("List renders without errors and have correct state", async () => {
     .simulate("click");
   expect(handleNextPage).toHaveBeenCalled();
   expect(instance.state.currentPage).toBe(1);
-  
+
   //simulating clicking on previous page
   await wrapper
     .find("button")

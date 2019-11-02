@@ -29,7 +29,7 @@ it("Item renders without errors and have correct state", async () => {
     .find("div")
     .at(0)
     .simulate("mouseenter");
-  
+
   expect(handleOnHover).toHaveBeenCalledTimes(1);
   expect(axios.get).toHaveBeenCalledWith("https://pokeapi.co/api/v2/pokemon/1");
 });
