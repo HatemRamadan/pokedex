@@ -67,6 +67,7 @@ export default class PokemonDetails extends Component {
       showPopup: !this.state.showPopup
     });
   };
+
   render() {
     return (
       /* <img
