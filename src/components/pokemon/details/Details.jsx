@@ -67,6 +67,7 @@ export default class PokemonDetails extends Component {
       showPopup: !this.state.showPopup
     });
   };
+
   render() {
     return (
       /* <img
@@ -125,7 +126,7 @@ export default class PokemonDetails extends Component {
               {this.state.stats.map(stat => {
                 return (
                   <div
-                    className="col-lg-6 col-md-12 col-sm-12 text-left"
+                    className="col-lg-6 col-md-6 col-sm-6 col-6 text-left"
                     key={stat.name}
                   >
                     <span style={{ color: "#cd3939" }}>

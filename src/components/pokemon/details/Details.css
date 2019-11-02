@@ -1,6 +1,6 @@
 .card-img-top {
-  width: 30%;
-  height: 15vw;
+  width: 15vw;
+  height: 25vh;
   object-fit: contain;
   cursor: pointer;
 }
@@ -34,17 +34,17 @@
     margin-bottom: 0.3em;
   }
   .pokemon-stats {
-    font-size: 0.4em;
+    font-size: 0.6em;
     margin-bottom: 0.1em;
   }
 
   .card-img-top {
-    width: 7%;
-    height: 18vw;
+    width: 15vw;
+    height: 20vh;
     object-fit: fill;
   }
   .my-card {
-    height: 40vh;
+    height: 38vh;
     width: 18rem;
     position: absolute;
     left: 0;
