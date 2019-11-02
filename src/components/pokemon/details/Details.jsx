@@ -4,7 +4,11 @@ import PokemonService from "../../../services/PokemonService";
 import "./Details.css";
 import Popup from "../image-popUp/PopUp";
 
-const cardStyle = { width: "20rem", backgroundColor: "#e6cdac", height:"55vh" };
+const cardStyle = {
+  width: "20rem",
+  backgroundColor: "#e6cdac",
+  height: "55vh"
+};
 export default class PokemonDetails extends Component {
   constructor(props) {
     super(props);
@@ -65,7 +69,7 @@ export default class PokemonDetails extends Component {
   };
   render() {
     return (
-        /* <img
+      /* <img
           width="150"
           height="150"
           src={this.state.image}
@@ -95,45 +99,54 @@ export default class PokemonDetails extends Component {
             </p>
           );
         })} */
-        <div className="my-card text-center" >
+      <div className="my-card text-center">
+        <img
+          src={this.state.image}
+          className="card-img-top text-center"
+          onLoad={this.handleLoaded}
+          hidden={!this.state.loaded}
+          onClick={this.togglePopup}
+        ></img>
+        {!this.state.loaded && (
           <img
-            src={this.state.image}
-            className="card-img-top text-center"
-            onLoad={this.handleLoaded}
-            hidden={!this.state.loaded}
-            onClick={this.togglePopup}
+            src="/pokedex/loading_pokemon.png"
+            className="card-img-top"
           ></img>
-          {!this.state.loaded && (
-            <img src="/pokedex/loading_pokemon.png" className="card-img-top"></img>
-          )}
-          <div className="card-body" hidden={!this.state.loaded}>
-            <h4 className="card-title text-center" style={{ color: "#005aff" }}>
-              {this.state.name}
-            </h4>
-            <h6 className="card-text">
-              <div className="row no-gutters">
-                {this.state.stats.map(stat => {
-                  return (
-                    <div className="col-lg-6 col-md-12 col-sm-12 text-left" key={stat.name}>
-                      <span style={{ color: "#cd3939" }}>
-                        {stat.name.substring(0, 1).toUpperCase() +
-                          stat.name.substring(1).replace("-", " ") +
-                          ": "}
-                      </span>
-                      <span className="text-muted">{stat.value}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </h6>
+        )}
+        <div className="card-body" hidden={!this.state.loaded}>
+          <div
+            className="card-title text-center pokemon-name"
+            style={{ color: "#005aff" }}
+          >
+            {this.state.name}
           </div>
-          {this.state.showPopup ? (
+          <div className="card-text pokemon-stats">
+            <div className="row no-gutters">
+              {this.state.stats.map(stat => {
+                return (
+                  <div
+                    className="col-lg-6 col-md-12 col-sm-12 text-left"
+                    key={stat.name}
+                  >
+                    <span style={{ color: "#cd3939" }}>
+                      {stat.name.substring(0, 1).toUpperCase() +
+                        stat.name.substring(1).replace("-", " ") +
+                        ": "}
+                    </span>
+                    <span className="text-muted">{stat.value}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        {this.state.showPopup ? (
           <Popup
             closePopup={this.togglePopup.bind(this)}
             image={this.state.image}
           ></Popup>
         ) : null}
-        </div>
+      </div>
     );
   }
 }

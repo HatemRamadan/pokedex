@@ -1,4 +1,3 @@
-
 .hover:hover {
   background-color: #cd3939;
   border-radius: 5px;
@@ -18,7 +17,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .scrollable-view {
   height: 47vh;
@@ -52,8 +50,8 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .scrollable-view{
+@media only screen and (max-width: 585px) {
+  .scrollable-view {
     height: 30vh;
   }
 }
