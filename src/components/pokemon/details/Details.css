@@ -6,27 +6,53 @@
 }
 .my-card {
   width: 20rem;
-  background-color:  #e6cdac;
-   height:55vh;
-   border-radius: 4px;
+  background-color: #e6cdac;
+  height: 55vh;
+  border-radius: 4px;
+}
+
+.pokemon-name {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.pokemon-stats {
+  display: block;
+  font-size: 0.7em;
+  margin-bottom: 0.3em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 585px) {
+  .pokemon-name {
+    font-size: 0.8em;
+    margin-bottom: 0.3em;
+  }
+  .pokemon-stats {
+    font-size: 0.4em;
+    margin-bottom: 0.1em;
+  }
+
+  .card-img-top {
+    width: 7%;
+    height: 18vw;
+    object-fit: fill;
+  }
+  .my-card {
+    height: 40vh;
+    width: 18rem;
+    position: absolute;
+    left: 0;
+  }
 }
 
 @media only screen and (max-width: 1150px) {
-  .my-card{
-    width: 19rem;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .card-img-top{
-    width: 10%;
-    height: 25vw;
-    object-fit: fill;
-  }
-  .my-card{
-    height: 40vh;
-    width: 21rem;
-    position: absolute;
-    left: 0;
+  .my-card {
+    width: 18rem;
   }
 }
