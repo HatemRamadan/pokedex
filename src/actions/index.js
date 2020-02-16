@@ -12,9 +12,10 @@ export const getPokemons = (page, limit) => async dispatch => {
     pokemon["number"] = number;
     pokemons.push(pokemon);
   });
-  pokemons.push({ count: res.data.count });
-
+  // pokemons.push({ count: response.data.count });
+  console.log("poke");
   dispatch({ type: "FETCH_PAGE", payload: pokemons });
+  dispatch(loadingOff());
 };
 
 export const getPokemonDetails = pokemonNumber => async dispatch => {
@@ -35,4 +36,22 @@ export const getPokemonDetails = pokemonNumber => async dispatch => {
   details["types"] = types;
   details["stats"] = stats;
   dispatch({ type: "FETCH_POKEMON_DETAILS", payload: details });
+};
+
+export const nextPage = () => dispatch => {
+  dispatch(loadingOn());
+  dispatch({ type: "NEXT_PAGE" });
+};
+
+export const prevPage = () => dispatch => {
+  dispatch(loadingOn());
+  dispatch({ type: "PREV_PAGE" });
+};
+
+export const loadingOn = () => {
+  return { type: "LOADING_ON" };
+};
+
+export const loadingOff = () => {
+  return { type: "LOADING_OFF" };
 };
