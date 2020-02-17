@@ -1,6 +1,6 @@
-export default (state = [], action) => {
+export default (state = null, action) => {
   switch (action.type) {
-    case "FETCH_PAGE": {
+    case "SELECT_POKEMON": {
       return action.payload;
     }
     default:

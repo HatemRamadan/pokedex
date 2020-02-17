@@ -1,29 +1,32 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./PopUp.css";
 
-class Popup extends React.Component {
-  render() {
-    return (
-      <div className="popup" onClick={this.props.closePopup}>
-        <div className="popup\_inner text-center">
-          <img
-            src={this.props.image}
-            className=""
-            width="40%"
-            height="40%"
-          ></img>
-          <p>
+const Popup = props => {
+  const { image, types, closePopup } = props;
+  return (
+    <div className="popup" onClick={closePopup}>
+      <div className="popup\_inner text-center">
+        <img src={image} className="" width="40%" height="40%"></img>
+        <p>
           <span className="text-warning">Types: </span>
-          {this.props.types.map(type => {
+          {types.map(type => {
             return <span key={type}>{type + " "}</span>;
-          })}</p>
-          <button className="btn btn-secondary" onClick={this.props.closePopup}>
-            Close
-          </button>
-        </div>
+          })}
+        </p>
+        <button className="btn btn-secondary" onClick={closePopup}>
+          Close
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Popup;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    image: state.pokemonDetails.image,
+    types: state.pokemonDetails.types
+  };
+};
+export default connect(mapStateToProps)(Popup);

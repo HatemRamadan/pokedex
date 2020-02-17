@@ -1,4 +1,4 @@
-import  pokeApi from '../api/pokeApi';
+import pokeApi from "../api/pokeApi";
 
 const ls = require("localstorage-ttl");
 const PokemonService = {
@@ -11,7 +11,8 @@ const PokemonService = {
         resolve(cashed);
       } else {
         console.log("API call page");
-        pokeApi.get("/?limit="+limit+"&offset="+(page - 1) * 20)
+        pokeApi
+          .get("/?limit=" + limit + "&offset=" + (page - 1) * 20)
           .then(res => {
             var pokemons = [];
             res.data.results.forEach(pokemon => {
