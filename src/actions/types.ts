@@ -1,0 +1,8 @@
+export const GET_NUMBER_OF_POKEMONS = "GET_NUMBER_OF_POKEMONS";
+export const FETCH_PAGE = "FETCH_PAGE";
+export const FETCH_POKEMON_DETAILS = "FETCH_POKEMON_DETAILS";
+export const SELECT_POKEMON = "SELECT_POKEMON";
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREV_PAGE = "PREV_PAGE";
+export const LOADING_ON = "LOADING_ON";
+export const LOADING_OFF = "LOADING_OFF";
