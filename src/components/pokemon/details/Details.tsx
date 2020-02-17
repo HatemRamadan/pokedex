@@ -3,13 +3,25 @@ import { connect } from "react-redux";
 import { getPokemonDetails, selectPokemon } from "../../../actions";
 import "./Details.css";
 import Popup from "../image-popUp/PopUp";
+import { RouteComponentProps } from "react-router-dom";
 
 const cardStyle = {
   width: "20rem",
   backgroundColor: "#e6cdac",
   height: "55vh"
 };
-const PokemonDetails = props => {
+
+type PokemonDetailsProps = {
+  image?: string;
+  name?: string;
+  number: RouteComponentProps<any>;
+  details: Record<string, any>;
+  stats?: [];
+  selectPokemon: Function;
+  getPokemonDetails: Function;
+  selectedPokemon: Function;
+};
+const PokemonDetails = (props: PokemonDetailsProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -47,7 +59,7 @@ const PokemonDetails = props => {
         </div>
         <div className="card-text pokemon-stats">
           <div className="row no-gutters">
-            {stats.map(stat => {
+            {stats.map((stat: Record<string, string>) => {
               return (
                 <div
                   className="col-lg-6 col-md-6 col-sm-6 col-6 text-left"
@@ -71,7 +83,7 @@ const PokemonDetails = props => {
     </div>
   );
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     selectedPokemon: state.selectedPokemon,
     details: state.pokemonDetails

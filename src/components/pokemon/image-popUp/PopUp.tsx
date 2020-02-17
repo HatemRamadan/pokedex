@@ -1,8 +1,13 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { connect } from "react-redux";
 import "./PopUp.css";
 
-const Popup = props => {
+type PopUpProps = {
+  image: string;
+  types: [];
+  closePopup: (e: MouseEvent) => any;
+};
+const Popup = (props: PopUpProps) => {
   const { image, types, closePopup } = props;
   return (
     <div className="popup" onClick={closePopup}>
@@ -22,8 +27,7 @@ const Popup = props => {
   );
 };
 
-const mapStateToProps = state => {
-  console.log(state);
+const mapStateToProps = (state: any) => {
   return {
     image: state.pokemonDetails.image,
     types: state.pokemonDetails.types

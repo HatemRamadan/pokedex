@@ -10,10 +10,21 @@ import {
 import PokemonItem from "../item/Item";
 import "./List.css";
 
-const PokemonList = props => {
+type PokemonListProps = {
+  page: number;
+  pokemons: Record<string, string>[];
+  getPokemons: Function;
+  prevPage: Function;
+  nextPage: Function;
+  loading: boolean;
+  numberOfPokemons: number;
+};
+const PokemonList = (props: PokemonListProps) => {
+  const PAGE_SIZE = 20;
+
   useEffect(() => {
     const { getPokemons, page } = props;
-    getPokemons(page, 20);
+    getPokemons(page, PAGE_SIZE);
   }, [props.page]);
 
   return (
@@ -25,7 +36,7 @@ const PokemonList = props => {
               <div key={pokemon.number} className="col-md-12 mt-2 hover">
                 <PokemonItem
                   name={pokemon.name}
-                  number={pokemon.number}
+                  number={Number(pokemon.number)}
                 ></PokemonItem>
               </div>
             );
@@ -49,15 +60,26 @@ const PokemonList = props => {
         >
           Previous
         </button>
-        <button className="btn btn-secondary btn-md" onClick={props.nextPage}>
+        <button
+          className="btn btn-secondary btn-md"
+          onClick={() => {
+            if (props.numberOfPokemons / PAGE_SIZE > props.page)
+              props.nextPage();
+          }}
+        >
           Next
         </button>
       </div>
     </div>
   );
 };
-const mapStateToProps = state => {
-  return { pokemons: state.pokemons, page: state.page, loading: state.loading };
+const mapStateToProps = (state: any) => {
+  return {
+    pokemons: state.pokemons,
+    page: state.page,
+    loading: state.loading,
+    numberOfPokemons: state.numberOfPokemons
+  };
 };
 export default connect(
   mapStateToProps,

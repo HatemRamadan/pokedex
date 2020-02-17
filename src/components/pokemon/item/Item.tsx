@@ -1,17 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-// import {PokemonService} from "../../../services/PokemonService";
 import "./Item.css";
 
-const PokemonItem = props => {
-  // const handleOnHover = () => {
-  //   PokemonService.getPokemonDetails(props.number);
-  // };
-
+type PokemonItem = {
+  number: number;
+  name: string;
+};
+const PokemonItem = (props: PokemonItem) => {
   return (
-    <div
-    // onMouseEnter={handleOnHover}
-    >
+    <div>
       <Link style={{ color: "#005aff" }} to={"/pokedex/" + props.number}>
         <div className="pokemon-item">
           {props.number +

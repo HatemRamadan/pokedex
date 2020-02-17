@@ -4,11 +4,13 @@ import pokemonsReducer from "./pokemonsReducer";
 import pageReducer from "./pageReducer";
 import loadingReducer from "./loadingReducer";
 import selectedPokemon from "./selectedPokemon";
+import numberOfPokemons from "./numberOfPokemons";
 
 export default combineReducers({
   pokemons: pokemonsReducer,
   pokemonDetails: pokemonDetailsReducer,
   page: pageReducer,
   loading: loadingReducer,
-  selectedPokemon: selectedPokemon
+  selectedPokemon: selectedPokemon,
+  numberOfPokemons: numberOfPokemons
 });
