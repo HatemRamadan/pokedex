@@ -1,4 +1,5 @@
-import axios from "axios";
+import pokeApi from "../api/pokeApi";
+
 const ls = require("localstorage-ttl");
 const PokemonService = {
   //calls to API
@@ -10,12 +11,8 @@ const PokemonService = {
         resolve(cashed);
       } else {
         console.log("API call page");
-        const params = {
-          offset: (page - 1) * 20,
-          limit: limit
-        };
-        axios
-          .get("https://pokeapi.co/api/v2/pokemon/", { params })
+        pokeApi
+          .get("/?limit=" + limit + "&offset=" + (page - 1) * 20)
           .then(res => {
             var pokemons = [];
             res.data.results.forEach(pokemon => {
@@ -42,8 +39,8 @@ const PokemonService = {
         resolve(cashed);
       } else {
         console.log("API call details");
-        axios
-          .get("https://pokeapi.co/api/v2/pokemon/" + number)
+        pokeApi
+          .get("/" + number)
           .then(res => {
             var details = {};
             var types = [];
